@@ -1,0 +1,18 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Node.js (if used in future)
+node_modules/
+.env
+
+# Build folders (optional if you start bundling your site)
+dist/
+build/
+
+# Logs
+*.log
+
+# VSCode/editor folders
+.vscode/
+.idea/
