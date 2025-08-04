@@ -1,41 +1,38 @@
-// Add typing effect to tagline (if used)
+// script.js
+
+// Typing effect
 const typedText = document.querySelector(".typed-text");
-const words = ["AI-driven robots", "Cobots", "Smart Interfaces", "DIY Kits"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+const words = ["AI Enthusiast", "Student", "Robotics Explorer", "Web Developer"];
+let i = 0, j = 0, currentWord = "", isDeleting = false;
 
-function typeEffect() {
-    if (typedText) {
-        const currentWord = words[wordIndex];
-        const typed = isDeleting
-            ? currentWord.substring(0, charIndex--)
-            : currentWord.substring(0, charIndex++);
-
-        typedText.textContent = typed;
-
-        let delay = isDeleting ? 60 : 100;
-
-        if (!isDeleting && charIndex === currentWord.length) {
-            delay = 1500;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-            delay = 500;
-        }
-
-        setTimeout(typeEffect, delay);
+function type() {
+  if (i < words.length) {
+    currentWord = words[i];
+    if (!isDeleting) {
+      typedText.textContent = currentWord.substring(0, j + 1);
+      j++;
+      if (j === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, 1000);
+        return;
+      }
+    } else {
+      typedText.textContent = currentWord.substring(0, j - 1);
+      j--;
+      if (j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+      }
     }
+    setTimeout(type, isDeleting ? 70 : 100);
+  }
 }
-typeEffect();
+type();
 
-// Toggle mobile menu (if included)
+// Toggle nav menu
 const toggleBtn = document.querySelector(".toggle-btn");
 const navMenu = document.querySelector(".nav-menu");
 
-if (toggleBtn && navMenu) {
-    toggleBtn.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-    });
-}
+toggleBtn.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+});
