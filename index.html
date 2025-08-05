@@ -1,50 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anshika Pandey Robotics</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anshika Pandey | Robotics Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Main Heading or Intro -->
   <header>
-    <h1>Hi, I'm Anshika Pandey</h1>
-    <p><span class="typed-text"></span></p>
+    <nav>
+      <div class="logo">
+        <img src="images/logo.png" alt="Anshika Logo" />
+        <span>Anshika Pandey</span>
+      </div>
+      <button class="toggle-btn">☰</button>
+      <ul class="nav-links nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1><span class="typed-text"></span></h1>
+      <p>Building the future with AI, code, and robotics.</p>
+    </div>
   </header>
 
-  <!-- Toggle button for mobile nav -->
-  <button class="toggle-btn">☰</button>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I'm Anshika Pandey, a passionate student exploring the world of AI, web development, and robotics. This portfolio showcases my journey, skills, and projects.</p>
+    </section>
 
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <section id="skills">
+      <h2>My Skills</h2>
+      <ul class="skills-list">
+        <li>Python</li>
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>Arduino & Robotics</li>
+        <li>Machine Learning Basics</li>
+      </ul>
+    </section>
 
-  <!-- Main Content Sections -->
-  <section id="home">
-    <!-- Add some text or welcome here -->
-  </section>
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <img src="images/robot1.jpg" alt="Robot 1">
+          <h3>Obstacle Avoider Bot</h3>
+          <p>A robot that uses ultrasonic sensors to detect and avoid obstacles.</p>
+        </div>
+        <div class="project-item">
+          <img src="images/webproject.jpg" alt="Website">
+          <h3>Portfolio Website</h3>
+          <p>This very site! Designed and developed using HTML, CSS, and JavaScript.</p>
+        </div>
+        <!-- Add more as needed -->
+      </div>
+    </section>
 
-  <section id="projects">
-    <!-- Add your school or robotics projects here -->
-  </section>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/yourFormID" method="POST" id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
 
-  <section id="skills">
-    <!-- Add skills like Python, AI, etc. -->
-  </section>
+  <footer>
+    <p>© 2025 Anshika Pandey Robotics. All Rights Reserved.</p>
+  </footer>
 
-  <section id="contact">
-    <!-- Email, GitHub, or school ID -->
-  </section>
-
-  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
