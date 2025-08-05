@@ -1,38 +1,39 @@
-// script.js
-
-// Typing effect
-const typedText = document.querySelector(".typed-text");
-const words = ["AI Enthusiast", "Student", "Robotics Explorer", "Web Developer"];
-let i = 0, j = 0, currentWord = "", isDeleting = false;
+// Typing animation
+const typedTextSpan = document.querySelector(".typed-text");
+const textArray = ["Robotics Enthusiast", "Web Developer", "Future AI Engineer"];
+let textArrayIndex = 0;
+let charIndex = 0;
 
 function type() {
-  if (i < words.length) {
-    currentWord = words[i];
-    if (!isDeleting) {
-      typedText.textContent = currentWord.substring(0, j + 1);
-      j++;
-      if (j === currentWord.length) {
-        isDeleting = true;
-        setTimeout(type, 1000);
-        return;
-      }
-    } else {
-      typedText.textContent = currentWord.substring(0, j - 1);
-      j--;
-      if (j === 0) {
-        isDeleting = false;
-        i = (i + 1) % words.length;
-      }
-    }
-    setTimeout(type, isDeleting ? 70 : 100);
+  if (charIndex < textArray[textArrayIndex].length) {
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, 100);
+  } else {
+    setTimeout(erase, 1500);
   }
 }
-type();
 
-// Toggle nav menu
+function erase() {
+  if (charIndex > 0) {
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(erase, 50);
+  } else {
+    textArrayIndex++;
+    if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+    setTimeout(type, 500);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(type, 1000);
+});
+
+// Toggle nav menu on small screens
 const toggleBtn = document.querySelector(".toggle-btn");
-const navMenu = document.querySelector(".nav-menu");
+const navMenu = document.querySelector(".nav-links");
 
 toggleBtn.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
+  navMenu.classList.toggle("nav-menu");
 });
